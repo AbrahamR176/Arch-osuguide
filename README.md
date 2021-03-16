@@ -24,7 +24,7 @@ If you have any questions, you can also just contact me if you have any question
         - [Setting up your CPU governor](#Setting-up-your-CPU-governor)
 - [Installing osu!](#Installing-osu)
     - [Lutris and osu!](#Lutris-and-osu)
-        - [Getting the patched wine.](#Getting-the-patched-wine.)
+        - [Getting the patched wine.](#Getting-the-patched-wine)
     - [Setting up your audio.](#Setting-up-your-audio.)
 
 
@@ -179,7 +179,7 @@ Now you have to browser to where your `wine` file in the folder you downloaded i
     .../wine-osu/bin/wine
 
 
-## Setting up your audio.
+## Setting up your audio
 
 This is by far the hardest part, but don't be scared, its not that hard.
 
