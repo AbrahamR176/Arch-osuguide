@@ -162,7 +162,7 @@ Once you have lutris installed, open it and search up for osu! in the browser, o
 
 If everything went right then your osu will be up and running, but once you start to play you will notice that the audio is not as good as it could be, it could be stuttery or straight up broken, lets fix that.
 
-### Getting the patched wine.
+### Getting the patched wine
 
 Normally you would have to download wine and compile the patches by yourself, I recommend downloading a precompiled wine since it works just fine.
 
