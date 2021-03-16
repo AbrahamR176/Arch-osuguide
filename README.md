@@ -11,7 +11,7 @@ Also this will be a guide for beginners. If you know your way around ThePoon's g
 ## Installing-Linux
 
 ### Getting your system
-First of all, if you want to run linux on arch, you need to have arch running in your computer.
+First of all, if you want to run osu! on arch, you need to have arch running in your computer.
 
 All the information regarding the installation of arch can be found in *https://wiki.archlinux.org/index.php/Installation_guide*, but since you are not expected to understand everything right away, I would stick to something easier to use, like an installer of some distribution based on arch.
 
