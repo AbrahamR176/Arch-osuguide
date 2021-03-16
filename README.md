@@ -14,7 +14,7 @@ If you have any questions, you can also just contact me if you have any question
 
 # Sections
 
--[Installing Linux](#Installing-Linux)
+- [Installing Linux](#Installing-Linux)
     - [Getting your system](#Getting-your-system)
     - [Flashing your USB](#Flashing-your-USB)
     - [installing system from USB](#installing-system-from-USB)
@@ -22,7 +22,7 @@ If you have any questions, you can also just contact me if you have any question
         - [getting a custom kernel (OPTION)](#getting-a-custom-kernel-(OPTION))
         - [Getting your video driver](#Getting-your-video-driver)
         - [Setting up your CPU governor](#Setting-up-your-CPU-governor)
--[Installing osu!](#Installing-osu!)
+- [Installing osu!](#Installing-osu!)
     - [Lutris and osu!](#Lutris-and-osu!)
         - [Getting the patched wine.](#Getting-the-patched-wine.)
     - [Setting up your audio.](#Setting-up-your-audio.)
