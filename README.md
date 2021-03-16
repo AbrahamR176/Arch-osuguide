@@ -57,23 +57,23 @@ First you have to know the following terms, which are going to be used throughou
 Command | Definition
 ------------ | -------------
 Install/Download| pacman -S **appname**
-nano/edit | nano **name of file**
+nano/edit | nano **nameoffile**
 
 ### getting a custom kernel (OPTION)
 
 There are multiple kernels in osu, you can pick whichever one you want, but I recommend using Linux-zen, since it is what ThePoon recommends and has worked most of the time for me.
 
-    ``pacman -S linux-zen linux-zen-headers``
+    pacman -S linux-zen linux-zen-headers
 
 Once it is installed, you will have to update your grub for it to show it so you can access it. 
 
-    ``grub-mkconfig -o /boot/grub/grub.cfg``
+    grub-mkconfig -o /boot/grub/grub.cfg
 
 Once that finishes, you can restart and the linux-zen option will appear on the list to pick, when your computer boots you will be running Linux-zen!.
 
 **If you use an nvidia gpu, make sure you install the nvidia-dkms driver, or else your computer wont boot on linux-zen.**
 
-    ``pacman -S nvidia-dkms``
+    pacman -S nvidia-dkms
 
 You can always read the wiki for more information.
 
@@ -83,7 +83,7 @@ Not all linux distributions come with the appropiate driver preinstalled. If you
 
 To check which driver you are running:
 
-    ``lspci -nnk``
+    lspci -nnk
 
     01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP104 [GeForce GTX 1060 6GB] [10de:1b83] (rev a1)
 	Subsystem: Gigabyte Technology Co., Ltd Device [1458:371a]
@@ -93,11 +93,11 @@ Mine is currently the `nvidia` driver, but in case it is not, you can install it
 
 **For nvidia**
 
-    ``pacman -S nvidia``
+    pacman -S nvidia lib32-nvidia-utils
 
 **For AMD**
 
-    ``pacman -S amdgpu``
+    pacman -S amdgpu
 
 I don't personally own an AMD GPU, so I can't tell which driver is better, but the wiki might help you out better. https://wiki.archlinux.org/index.php/AMDGPU
 
@@ -105,14 +105,100 @@ I don't personally own an AMD GPU, so I can't tell which driver is better, but t
 
 The CPU governor can have HUGE impact in performance, and not all cpus come with performance in mind. you can just change your governor to something that fits your needs better.
 
-    ``pacman -S cpupower``
+    pacman -S cpupower
 
 then to put the performance governor:
 
-    ``cpupower frequency-set -g performance``
+    cpupower frequency-set -g performance
 
 This will give you better performance not only in osu, but in your linux system overall.
 
+# Installing osu!
+
+Now the fun starts, we are going to be installing osu! using lutris, which makes the entire process easier.
+
+## Lutris and osu!
+
+First of all, get lutris:
+
+    pacman -S lutris
+
+For osu to work you also need wine to be installed:
+
+    pacman -S wine lib32-gnutls lib32-libxcomposite
+
+`lib32-libxcomposite` and `lib32-gnutls` are installed to get rid of some problems that might show up down the line, they are optional and osu! might work without it.
+
+Once you have lutris installed, open it and search up for osu! in the browser, once you find it, install the `Windows` version and press continue as many times as it asks you to.
+
+If everything went right then your osu will be up and running, but once you start to play you will notice that the audio is not as good as it could be, it could be stuttery or straight up broken, lets fix that.
+
+## Setting up your audio.
+
+This is by far the hardest part, but don't be scared, its not that hard.
+
+Change your audio priority, copy and paste the entire thing.
+
+    echo "USER - nice -20
+    @audio - rtprio 99" >> /etc/security/limits.conf
+
+copy and paste the entire command, and replace USER with your username, you can find your username in your terminal.
+
+Create a new folder in /etc/pulse/: 
+
+    mkdir -p /etc/pulse/daemon.conf.d/
+
+Create the file containing the following settings, copy and paste the entire thing:
+
+    echo "high-priority = yes
+    nice-level = -15
+
+    realtime-scheduling = yes
+    realtime-priority = 50
+
+    resample-method = speex-float-0
+
+    default-fragments = 2 # Minimum is 2
+    default-fragment-size-msec = 2 # You can set this to 1, but that will break OBS audio capture." | sudo tee -a /etc/pulse/daemon.conf.d/10-better-latency.conf
+
+Now edit `/etc/pulse/daemon.conf.d/10-better-latency.conf` and change both the `default-fragments` and `default-fragment-size-msec`, this is where some trial and error comes into place, if your audio sounds broken or cracking, increase both of these numbers, in my case I use default-fragments = 6 and default-fragment-size-msec = 3.
+
+Now lets edit the pulseaudio settings file and add the following line:
+
+    sudo nano /etc/pulse/default.pa
+
+Using the arrow keys scroll down till you see something like this:
+
+    ### Automatically load driver modules depending on the hardware available
+    .ifexists module-udev-detect.so
+    load-module module-udev-detect 
+    .else
+
+Add ``tsched=0`` to the end of ``load-module module-udev-detect ``
+
+    ### Automatically load driver modules depending on the hardware available
+    .ifexists module-udev-detect.so
+    load-module module-udev-detect tsched=0
+    .else
+
+to save the settings and exit nano, press CONTROL + O, enter, and then CONTROL + X. 
+
+that should be all for your audio, make sure you restart pulseaudio for it to take effect.
+
+    pulseaudio -k
+
+Now lets set up some settings in your lutris.
+
+Open lutris and right click on osu!, and then press configure. In the `System options`, scroll down to environment variables and add the following two values:
+
+Key | Value
+------------ | -------------
+STAGING_AUDIO_DURATION | **VALUE**
+STAGING_AUDIO_PERIOD | **VALUE**
+
+I recommend starting with values of `10000`, and if the game audio is still broken after that, keep increasing both until it doesnt.
+
+and if everything is properly configured, your osu! should start and the audio shouldn't be an a mess!.
 
 
 
