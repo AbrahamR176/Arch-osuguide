@@ -10,6 +10,8 @@ Also this will be a guide for beginners. If you know your way around ThePoon's g
 
 If you have any questions, you can also just contact me if you have any question, if I have the time, I will help you out for sure.
 
+**Credits to ThePoon for providing the guide I based mine on in: https://blog.thepoon.fr/osuLinuxAudioLatency/**
+
 # Installing-Linux
 
 ## Getting your system
