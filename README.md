@@ -140,11 +140,11 @@ This is by far the hardest part, but don't be scared, its not that hard.
 Change your audio priority, copy and paste the entire thing.
 
     echo "USER - nice -20
-    @audio - rtprio 99" >> /etc/security/limits.conf
+    USER - rtprio 99" >> /etc/security/limits.conf
 
 copy and paste the entire command, and replace USER with your username, you can find your username in your terminal.
 
-Create a new folder in /etc/pulse/: 
+Create a new folder in /etc/pulse/ called pulse/daemon.conf.d: 
 
     mkdir -p /etc/pulse/daemon.conf.d/
 
@@ -163,16 +163,18 @@ Create the file containing the following settings, copy and paste the entire thi
 
 Now edit `/etc/pulse/daemon.conf.d/10-better-latency.conf` and change both the `default-fragments` and `default-fragment-size-msec`, this is where some trial and error comes into place, if your audio sounds broken or cracking, increase both of these numbers, in my case I use default-fragments = 6 and default-fragment-size-msec = 3.
 
+    sudo nano /etc/pulse/daemon.conf.d/10-better-latency.conf
+
 Now lets edit the pulseaudio settings file and add the following line:
 
-    sudo nano /etc/pulse/default.pa
+        sudo nano /etc/pulse/default.pa
 
-Using the arrow keys scroll down till you see something like this:
+    Using the arrow keys scroll down till you see something like this:
 
-    ### Automatically load driver modules depending on the hardware available
-    .ifexists module-udev-detect.so
-    load-module module-udev-detect 
-    .else
+        ### Automatically load driver modules depending on the hardware available
+        .ifexists module-udev-detect.so
+        load-module module-udev-detect 
+        .else
 
 Add ``tsched=0`` to the end of ``load-module module-udev-detect ``
 
