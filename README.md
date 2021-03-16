@@ -59,6 +59,16 @@ Command | Definition
 Install/Download| pacman -S **appname**
 nano/edit | nano **nameoffile**
 
+**to save the changes and exit nano, press CONTROL + O, enter, and then CONTROL + X.**
+
+Also you will be asked to use the terminal a lot, make sure you know which terminal you have installed in your system, and also some basic commands.
+
+Command | Definition
+------------ | -------------
+ls | Shows every file in the folder your terminal is currently is.
+cd | moves your terminal to the folder specified: `cd Downloads`, ``cd ..`` moves you back.
+
+
 ### getting a custom kernel (OPTION)
 
 There are multiple kernels in osu, you can pick whichever one you want, but I recommend using Linux-zen, since it is what ThePoon recommends and has worked most of the time for me.
@@ -133,6 +143,23 @@ Once you have lutris installed, open it and search up for osu! in the browser, o
 
 If everything went right then your osu will be up and running, but once you start to play you will notice that the audio is not as good as it could be, it could be stuttery or straight up broken, lets fix that.
 
+### Getting the patched wine.
+
+Normally you would have to download wine and compile the patches by yourself, I recommend downloading a precompiled wine since it works just fine.
+
+get it at https://5124.mywire.org/HDD/Downloads/wine-osu-4.13-1-x86_64.pkg.tar.xz, **credits to ThePoon and the community in his discord for providing this wine compilation.**
+
+Then you have to extract it, if you saved the file in downloads, then you can do:
+
+    tar -xvf wine-osu-4.13-1-x86_64.pkg.tar.xz
+
+Now go to lutris, right click osu and configure, then go to `Runner options`, and for `Wine version`, select custom and tick the `Advanced options` box in the bottom of the settings.
+
+Now you have to browser to where your `wine` file in the folder you downloaded is, in my case it is. It should look like: 
+
+    .../wine-osu/bin/wine
+
+
 ## Setting up your audio.
 
 This is by far the hardest part, but don't be scared, its not that hard.
@@ -167,14 +194,14 @@ Now edit `/etc/pulse/daemon.conf.d/10-better-latency.conf` and change both the `
 
 Now lets edit the pulseaudio settings file and add the following line:
 
-        sudo nano /etc/pulse/default.pa
+    sudo nano /etc/pulse/default.pa
 
-    Using the arrow keys scroll down till you see something like this:
+Using the arrow keys scroll down till you see something like this:
 
-        ### Automatically load driver modules depending on the hardware available
-        .ifexists module-udev-detect.so
-        load-module module-udev-detect 
-        .else
+    ### Automatically load driver modules depending on the hardware available
+    .ifexists module-udev-detect.so
+    load-module module-udev-detect 
+    .else
 
 Add ``tsched=0`` to the end of ``load-module module-udev-detect ``
 
@@ -182,8 +209,6 @@ Add ``tsched=0`` to the end of ``load-module module-udev-detect ``
     .ifexists module-udev-detect.so
     load-module module-udev-detect tsched=0
     .else
-
-to save the settings and exit nano, press CONTROL + O, enter, and then CONTROL + X. 
 
 that should be all for your audio, make sure you restart pulseaudio for it to take effect.
 
