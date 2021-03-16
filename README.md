@@ -22,14 +22,14 @@ If you have any questions, you can also just contact me if you have any question
         - [getting a custom kernel (OPTION)](#getting-a-custom-kernel-(OPTION))
         - [Getting your video driver](#Getting-your-video-driver)
         - [Setting up your CPU governor](#Setting-up-your-CPU-governor)
-- [Installing osu!](#Installing-osu!)
-    - [Lutris and osu!](#Lutris-and-osu!)
+- [Installing osu!](#Installing-osu)
+    - [Lutris and osu!](#Lutris-and-osu)
         - [Getting the patched wine.](#Getting-the-patched-wine.)
     - [Setting up your audio.](#Setting-up-your-audio.)
 
 
 
-# Installing-Linux
+# Installing Linux
 
 ## Getting your system
 <!--Explain which file to download.-->
@@ -142,11 +142,11 @@ then to put the performance governor:
 
 This will give you better performance not only in osu, but in your linux system overall.
 
-# Installing osu!
+# Installing osu
 
 Now the fun starts, we are going to be installing osu! using lutris, which makes the entire process easier.
 
-## Lutris and osu!
+## Lutris and osu
 
 First of all, get lutris:
 
