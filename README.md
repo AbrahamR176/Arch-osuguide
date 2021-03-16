@@ -85,7 +85,7 @@ To check which driver you are running:
 
 ``lspci -nnk``
 
-    -01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP104 [GeForce GTX 1060 6GB] [10de:1b83] (rev a1)
+    01:00.0 VGA compatible controller [0300]: NVIDIA Corporation GP104 [GeForce GTX 1060 6GB] [10de:1b83] (rev a1)
 	Subsystem: Gigabyte Technology Co., Ltd Device [1458:371a]
 	Kernel driver in use: nvidia
 
