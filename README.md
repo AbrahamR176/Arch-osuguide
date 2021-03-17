@@ -19,7 +19,7 @@ If you have any questions, you can also just contact me if you have any question
     - [Flashing your USB](#Flashing-your-USB)
     - [installing system from USB](#installing-system-from-USB)
     - [Getting arch ready](#Getting-arch-ready)
-        - [getting a custom kernel (OPTIONAL)](#getting-a-custom-kernel)
+        - [getting a custom kernel](#getting-a-custom-kernel)
         - [Getting your video driver](#Getting-your-video-driver)
         - [Setting up your CPU governor](#Setting-up-your-CPU-governor)
 - [Installing osu!](#Installing-osu)
@@ -88,7 +88,7 @@ ls | Shows every file in the folder your terminal is currently is.
 cd | moves your terminal to the folder specified: `cd Downloads`, ``cd ..`` moves you back.
 
 
-### getting a custom kernel (OPTIONAL)
+### getting a custom kernel
 
 There are multiple kernels in osu, you can pick whichever one you want, but I recommend using Linux-zen, since it is what ThePoon recommends and has worked most of the time for me.
 
