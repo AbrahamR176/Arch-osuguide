@@ -19,7 +19,7 @@ If you have any questions, you can also just contact me if you have any question
     - [Flashing your USB](#Flashing-your-USB)
     - [installing system from USB](#installing-system-from-USB)
     - [Getting arch ready](#Getting-arch-ready)
-        - [getting a custom kernel (OPTIONAL)](#getting-a-custom-kernel-(OPTIONAL))
+        - [getting a custom kernel (OPTIONAL)](#getting-a-custom-kernel)
         - [Getting your video driver](#Getting-your-video-driver)
         - [Setting up your CPU governor](#Setting-up-your-CPU-governor)
 - [Installing osu!](#Installing-osu)
