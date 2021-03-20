@@ -8,7 +8,7 @@ All the information that will be given here is based around my **OWN** experienc
 
 Also this will be a guide for beginners. If you know your way around ThePoon's guide on installing osu!, then you probably do not need this guide.
 
-If you have any questions, you can also just contact me if you have any question, if I have the time, I will help you out for sure.
+If you have any questions, you can also just contact me, if I have the time, I will help you out for sure.
 
 **Credits to ThePoon for providing the guide I based mine on in: https://blog.thepoon.fr/osuLinuxAudioLatency/**
 
